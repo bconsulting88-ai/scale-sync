@@ -14,7 +14,12 @@
 
 ### 1. Install
 
-**macOS / Linux:**
+**macOS / Linux — one-liner (downloads + installs automatically):**
+```bash
+curl -fsSL https://raw.githubusercontent.com/bconsulting88-ai/scale-sync/main/install.sh | bash
+```
+
+**macOS / Linux — if you already cloned the repo:**
 ```bash
 bash install.sh
 ```
