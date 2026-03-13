@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Background rounded square -->
+  <rect width="512" height="512" rx="112" fill="#060E0E"/>
+
+  <!-- Outer hex ring -->
+  <polygon
+    points="256,52 441,158 441,354 256,460 71,354 71,158"
+    fill="none"
+    stroke="#00BFA5"
+    stroke-width="18"
+    stroke-linejoin="round"
+  />
+
+  <!-- Inner hex filled -->
+  <polygon
+    points="256,130 370,195 370,317 256,382 142,317 142,195"
+    fill="#00BFA520"
+    stroke="#00BFA5"
+    stroke-width="10"
+    stroke-linejoin="round"
+  />
+
+  <!-- Scale beam -->
+  <line x1="160" y1="256" x2="352" y2="256" stroke="#00BFA5" stroke-width="14" stroke-linecap="round"/>
+
+  <!-- Scale pivot post -->
+  <line x1="256" y1="220" x2="256" y2="300" stroke="#00BFA5" stroke-width="14" stroke-linecap="round"/>
+
+  <!-- Left pan -->
+  <line x1="160" y1="256" x2="160" y2="290" stroke="#00BFA5" stroke-width="10" stroke-linecap="round"/>
+  <path d="M136,290 Q160,310 184,290" fill="none" stroke="#00BFA5" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- Right pan -->
+  <line x1="352" y1="256" x2="352" y2="290" stroke="#00BFA5" stroke-width="10" stroke-linecap="round"/>
+  <path d="M328,290 Q352,310 376,290" fill="none" stroke="#00BFA5" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- Weight dot on right pan -->
+  <circle cx="352" cy="274" r="12" fill="#00BFA5" opacity="0.7"/>
+
+  <!-- "SS" monogram subtle watermark at bottom -->
+  <text x="256" y="430" font-family="monospace" font-size="44" font-weight="700"
+    fill="#00BFA5" opacity="0.35" text-anchor="middle" letter-spacing="8">SS</text>
+</svg>
