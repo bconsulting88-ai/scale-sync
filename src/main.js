@@ -9,11 +9,13 @@ const fs     = require('fs');
 let SerialPort, ReadlineParser, Store, Database;
 
 async function loadNative() {
-  ({ SerialPort }     = require('serialport'));
-  ({ ReadlineParser } = require('@serialport/parser-readline'));
-  const storeModule   = await import('electron-store');
-  Store               = storeModule.default;
-  Database            = require('better-sqlite3');
+  try { ({ SerialPort } = require('serialport')); } catch (e) { console.warn('serialport unavailable:', e.message); }
+  try { ({ ReadlineParser } = require('@serialport/parser-readline')); } catch (e) {}
+  try {
+    const storeModule = await import('electron-store');
+    Store = storeModule.default;
+  } catch (e) { console.warn('electron-store unavailable:', e.message); }
+  try { Database = require('better-sqlite3'); } catch (e) { console.warn('better-sqlite3 unavailable (ABI mismatch — run electron-rebuild):', e.message); }
 }
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -28,8 +30,8 @@ let activeParser = null;
 
 app.whenReady().then(async () => {
   await loadNative();
-  store = new Store();
-  initDB();
+  try { store = Store ? new Store() : null; } catch (e) { console.warn('Store init failed:', e.message); }
+  try { initDB(); } catch (e) { console.warn('DB init failed (better-sqlite3 not compiled for this Electron — run electron-rebuild):', e.message); }
   createWindow();
 });
 
