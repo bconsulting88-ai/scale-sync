@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline'; connect-src https://auth.dutchie.com https://plus.dutchie.com; font-src https://fonts.googleapis.com https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com">
+  <title>ScaleSync</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-deep:    #060E0E;
+      --bg-panel:   #0B1818;
+      --bg-card:    #0F2020;
+      --bg-hover:   #142828;
+      --border:     #1C3535;
+      --border-mid: #243F3F;
+      --teal:       #00BFA5;
+      --teal-dim:   #00897B;
+      --teal-glow:  #00BFA520;
+      --amber:      #FFB74D;
+      --red:        #EF5350;
+      --green:      #66BB6A;
+      --text-hi:    #E8F5F5;
+      --text-mid:   #90AFAF;
+      --text-lo:    #4A7070;
+      --font-mono:  'IBM Plex Mono', monospace;
+      --font-sans:  'IBM Plex Sans', sans-serif;
+    }
+
+    html, body, #root { height: 100%; overflow: hidden; }
+    body { background: var(--bg-deep); color: var(--text-hi); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg-panel); }
+    ::-webkit-scrollbar-thumb { background: var(--border-mid); border-radius: 2px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--teal-dim); }
+
+    button { cursor: pointer; font-family: var(--font-sans); }
+    input, select, textarea { font-family: var(--font-mono); }
+    input:focus, select:focus, textarea:focus { outline: none; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.4; }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(16px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="./renderer.js"></script>
+</body>
+</html>
